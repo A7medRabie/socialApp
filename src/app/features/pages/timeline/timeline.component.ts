@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
  import { PostCardComponent } from "../../../shared/components/post-card/post-card.component";
 
+  import { AddPostComponent } from '../../../shared/components/add-post/add-post.component';    
 @Component({
   selector: 'app-timeline',
-  imports: [ PostCardComponent],
-import { AddPostComponent } from "../../../shared/components/add-post/add-post.component";
-
-@Component({
-  selector: 'app-timeline',
-  imports: [AddPostComponent],
+  imports: [AddPostComponent, PostCardComponent],
   templateUrl: './timeline.component.html',
   styleUrl: './timeline.component.css'
 })
