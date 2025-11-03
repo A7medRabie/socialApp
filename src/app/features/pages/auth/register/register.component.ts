@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild, NgZone, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { initFlowbite } from 'flowbite';
  
 @Component({
@@ -27,7 +27,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       confirmPassword: ['', [Validators.required]],
       dob: ['', Validators.required],
       gender: ['', Validators.required],
-    });
+    },   { validators: this.matchPasswordsValidator }
+);
   }
 
   ngAfterViewInit() {
@@ -44,9 +45,19 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 }
 
 
+matchPasswordsValidator(form:AbstractControl){ // for matching password
+     
+      const pass=form.get("password")?.value;
+      const repass=form.get("confirmPassword")?.value;
+      if (pass===repass) {
+        return null
+      }else {return{misMatch:true}}  // return mismath in error of api instead of null
+ 
+  }
+
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log('Form Data:', this.registerForm.value);
+      console.log('Form Data:', this.registerForm);
      } else {
       this.registerForm.markAllAsTouched();
     }
