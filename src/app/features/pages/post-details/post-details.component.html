@@ -1,1 +1,20 @@
-<p>post-details works!</p>
+<div class="md:w-1/2 mx-auto bg-white border border-gray-200 rounded-xl shadow-sm p-4 mb-6">
+
+  <app-post-card [post]="postDetails()"  ></app-post-card>
+
+    <!-- Comments Section -->
+         <div class="border-t border-gray-200 overflow-y-auto max-h-96 mt-4">
+            @if ((postDetails().comments)??[].length > 0) {
+                    @for (comment of postDetails().comments; track $index) {
+                    
+                    <app-s-comment [comment]="comment"></app-s-comment>
+                    }
+            }
+            @else {
+                <p class="text-sm text-gray-500 p-4">No comments yet.</p>}
+        </div>
+    
+
+     <app-add-comment [postId]="postDetails().id"   (commentsUpdated)="updateComments($event)"></app-add-comment>        
+    
+</div>

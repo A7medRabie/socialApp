@@ -3,6 +3,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "auth": [
+        "./dist/auth"
+      ],
+      "shared-ui": [
+        "./dist/shared-ui"
+      ],
+      "shared-utils": [
+        "./dist/shared-utils"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

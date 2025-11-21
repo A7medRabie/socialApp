@@ -1,21 +1,29 @@
-<div class="min-h-screen flex items-center justify-center">
+  <div class="min-h-screen flex items-center justify-center">
   <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-6">
     <h2 class="text-2xl font-bold text-center text-gray-800">Create an Account</h2>
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
       <!-- Full Name -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700">Full Name</label>
+        <lib-custom-input  
+          formControlName="name" 
+          [control]="registerForm.get('name')" 
+           [placeholder]="'John Doe'" 
+           [label]="'Full Name'"
+           [type]="'text'">
+         </lib-custom-input>
+        <!-- <label class="block mb-2 text-sm font-medium text-gray-700">Full Name</label>
         <input
           type="text"
           formControlName="name"
+           placeholder="John Doe"
+
           class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           [ngClass]="{
             'border-red-500': registerForm.get('name')?.invalid && registerForm.get('name')?.touched,
             'border-gray-300': registerForm.get('name')?.valid || !registerForm.get('name')?.touched
           }"
-          placeholder="John Doe"
-        />
+        /> -->
         @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
           <span class="text-red-500 text-sm">Name is required.</span>
         }
@@ -23,17 +31,25 @@
 
       <!-- Email -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700">Email Address</label>
+        <lib-custom-input  
+           formControlName="email" 
+           [control]="registerForm.get('email')"
+           [placeholder]="'example@email.com'" 
+           [label]="'Email Address'"
+           [type]="'email'">
+        </lib-custom-input>
+        <!-- <label class="block mb-2 text-sm font-medium text-gray-700">Email Address</label>
         <input
           type="email"
           formControlName="email"
+          placeholder="example@email.com"
+
           class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           [ngClass]="{
             'border-red-500': registerForm.get('email')?.invalid && registerForm.get('email')?.touched,
             'border-gray-300': registerForm.get('email')?.valid || !registerForm.get('email')?.touched
           }"
-          placeholder="example@email.com"
-        />
+        /> -->
         @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
           <span class="text-red-500 text-sm">Email is required.</span>
         }
@@ -41,7 +57,14 @@
 
       <!-- Password -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+        <lib-custom-input
+           formControlName="password"   
+           [control]="registerForm.get('password')"
+           [placeholder]="'••••••••'" 
+           [label]="'Password'"
+           [type]="'password'">
+        </lib-custom-input>
+        <!-- <label class="block mb-2 text-sm font-medium text-gray-700">Password</label>
         <input
           type="password"
           formControlName="password"
@@ -51,12 +74,20 @@
             'border-gray-300': registerForm.get('password')?.valid || !registerForm.get('password')?.touched
           }"
           placeholder="••••••••"
-        />
+        /> -->
       </div>
 
       <!-- Confirm Password -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700">Confirm Password</label>
+        <lib-custom-input  
+           formControlName="rePassword" 
+           [control]="registerForm.get('rePassword')"
+           [parentForm]="registerForm"
+           [placeholder]="'••••••••'" 
+           [label]="'Confirm Password'"
+           [type]="'password'">
+        </lib-custom-input>
+        <!-- <label class="block mb-2 text-sm font-medium text-gray-700">Confirm Password</label>
         <input
           type="password"
           formControlName="confirmPassword"
@@ -66,7 +97,7 @@
             'border-gray-300': registerForm.get('confirmPassword')?.valid || !registerForm.get('confirmPassword')?.touched
           }"
           placeholder="••••••••"
-        />
+        /> -->
       </div>
 
       <!-- Date of Birth -->
@@ -74,13 +105,20 @@
       
 
           
-        <div class="relative max-w-sm">
+        <div class="relative ">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                 </svg>
             </div>
-            <input id="datepicker-autohide"
+            <lib-custom-input  
+               formControlName="dateOfBirth" 
+               [control]="registerForm.get('dateOfBirth')"
+               [placeholder]="'Select Birthdate '" 
+                [datepicker]="true"
+               [type]="'text'">
+            </lib-custom-input>
+            <!-- <input  
                 datepicker 
                 datepicker-autohide
                 #datepickerInput
@@ -92,7 +130,7 @@
                 datepicker-orientation="top"
  
 
-             >  
+             >   -->
              
         
         </div>
@@ -102,8 +140,7 @@
 
       <!-- Gender -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700">Gender</label>
-        <div class="flex items-center gap-4">
+         <div class="flex items-center gap-4">
           <label class="flex items-center gap-2">
             <input type="radio" formControlName="gender" value="male" class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" />
             <span class="text-gray-700 text-sm">Male</span>
@@ -116,13 +153,19 @@
       </div>
 
       <!-- Submit Button -->
-      <button
+       <lib-custom-button 
+       [label]="'Sign Up'" 
+       [disabled]="registerForm.invalid"
+       (onClick)="onSubmit()"
+       [isloading]="isloading"/>
+
+       <!-- <button
         type="submit"
         [disabled]="registerForm.invalid"
         class="w-full text-white bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
       >
         Sign Up
-      </button>
+      </button> -->
     </form>
   </div>
 </div>

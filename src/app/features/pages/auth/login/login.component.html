@@ -1,1 +1,46 @@
-<p>login works!</p>
+  <div class="min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-6">
+    <h2 class="text-2xl font-bold text-center text-gray-800">Sign In</h2>
+
+    <form [formGroup]="login" (ngSubmit)="onSubmit()" class="space-y-4">
+ 
+
+      <!-- Email -->
+      <div>
+        <lib-custom-input  
+           formControlName="email" 
+           [control]="login.get('email')"
+           [placeholder]="'example@email.com'" 
+           [label]="'Email Address'"
+           [type]="'email'">
+        </lib-custom-input>
+         
+        @if (login.get('email')?.invalid && login.get('email')?.touched) {
+          <span class="text-red-500 text-sm">Email is required.</span>
+        }
+       </div>
+
+      <!-- Password -->
+      <div>
+        <lib-custom-input
+           formControlName="password"   
+           [control]="login.get('password')"
+           [placeholder]="'••••••••'" 
+           [label]="'Password'"
+           [type]="'password'">
+        </lib-custom-input>
+        
+      </div>
+ 
+
+      <!-- Submit Button -->
+       <lib-custom-button 
+       [label]="'Sign Up'" 
+       [disabled]="login.invalid"
+       (onClick)="onSubmit()"
+       [isloading]="isloading"/>
+
+       
+    </form>
+  </div>
+</div>
