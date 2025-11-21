@@ -2,8 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor, NgIf, NgClass } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
-import { PostsService } from '../../../core/services/posts.service';
+ import { PostsService } from '../../../core/services/posts.service';
+import { ToastService } from '../../../../../projects/shared-utils/src/public-api';
 
 @Component({
   selector: 'app-add-post',
@@ -17,7 +17,7 @@ export class AddPostComponent implements OnInit {
   previewUrls: string[] = []
   maxSize: number = 200 * 1024 ;// 200 KB
 
-  private _toastr=inject(ToastrService)
+  private _toastr=inject(ToastService)
   private _postsService=inject(PostsService);
 
 ngOnInit() {
@@ -72,9 +72,12 @@ selectImage(e:Event){
       this._postsService.createPost(formData).subscribe({
         next: (response) => {
           this._toastr.success(response.message);
+          this.content.reset();
+            
         },
         error: (error) => {
-          this._toastr.error(error.message);
+           
+           this._toastr.error(error.error.error);
         }
       });
     }

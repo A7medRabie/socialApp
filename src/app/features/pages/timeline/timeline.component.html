@@ -1,5 +1,27 @@
  
  <app-add-post></app-add-post>
 
- <app-post-card></app-post-card>
+@for (item of posts(); track $index) {
+<div class="md:w-1/2 mx-auto bg-white border border-gray-200 rounded-xl shadow-sm p-4 mb-6">
+
+  <app-post-card [post]="item" (loadComments)="trigger[item.id]=true" ></app-post-card>
+
+    <!-- Comments Section -->
+     @defer (when trigger[item.id]) {
+        <div class="border-t border-gray-200 overflow-y-auto max-h-96 mt-4">
+            @if (item.comments.length > 0) {
+                    @for (comment of item.comments; track $index) {
+                    
+                    <app-s-comment [comment]="comment"></app-s-comment>
+                    }
+            }
+            @else {
+                <p class="text-sm text-gray-500 p-4">No comments yet.</p>}
+        </div>
+    } 
+
+     <app-add-comment [postId]="item.id" (commentsUpdated)="updateComments(item.id,$event)"></app-add-comment>        
+    
+</div>
  
+ }
