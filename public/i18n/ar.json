@@ -1,0 +1,54 @@
+{
+  "addpost": {
+    "placeholder": "اكتب منشورًا جديدًا",
+    "title": "إنشاء منشور جديد",
+    "body": "اكتب أفكارك هنا...",
+    "submit": "نشر",
+    "upload": "اضغط لرفع ملف"
+  },
+  "postCard": {
+    "like": "إعجاب",
+    "showcomments": "عرض التعليقات",
+    "placeholder": "اكتب تعليقًا..."
+  },
+  "comments": {
+    "placeholder": "اكتب تعليقًا..."
+  },
+  "settings": {
+    "title": "اعدادات الحساب",
+    "change profile photo": "تغيير الصورة الشخصية",
+    "upload new photo": "رفع صورة جديدة",
+    "changepassword": "تغيير كلمة المرور",
+    "currentpassword": "كلمة المرور الحالية",
+    "currentpasswordplaceholder": "ادخل كلمة المرور الحالية",
+    "newpassword": "كلمة المرور الجديدة",
+    "newpasswordplaceholder": "ادخل كلمة المرور الجديدة",
+    "confirmnewpassword": "تاكيد كلمة المرور الجديدة",
+    "submit": "تغيير كلمة المرور"
+  },
+  "navbar": {
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "dark": "الوضع الداكن",
+    "light": "الوضع الفاتح",
+    "ar": "اللغة العربية",
+    "en": "اللغة الإنجليزية",
+    "logout": "تسجيل الخروج"
+  },
+  "login": {
+    "login to your account": "تسجيل الدخول إلى حسابك",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "dont have an account?": "ليس لديك حساب؟",
+    "register here": "سجّل من هنا"
+  },
+  "register": {
+    "register to your account": "إنشاء حساب جديد",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm password": "تأكيد كلمة المرور",
+    "already have an account?": "هل لديك حساب بالفعل؟",
+    "login here": "سجّل الدخول من هنا"
+  }
+}

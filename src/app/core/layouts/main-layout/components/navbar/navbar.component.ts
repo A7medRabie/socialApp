@@ -3,23 +3,33 @@ import { OnInit } from '@angular/core';
 import { Dropdown, initFlowbite } from 'flowbite';
 import { Router, RouterLink } from "@angular/router";
 import { getLoggedUser, User } from '../../../../interfaces/user.interface';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { MytranslateService } from '../../../../services/mytranslate.service';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink],
+  imports: [RouterLink,TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit,AfterViewInit {
+export class NavbarComponent implements OnInit,AfterViewInit{
 
-  userId!:string
-  user!:getLoggedUser
+   user!:getLoggedUser
+  isdarkMode:boolean=false;
   private readonly _router=inject(Router)
+  private _translate=inject(MytranslateService)
+  private readonly _translateService=inject(TranslateService)
 
   dropdown!: Dropdown;
-
+  
    ngOnInit(): void {
+    
+    
+    
          initFlowbite();
          this.user=JSON.parse(localStorage.getItem('user')!)
+         if (localStorage.getItem("darkMode")) {
+            this.isdarkMode=JSON.parse(localStorage.getItem("darkMode")!);
+         }
 
    }
   ngAfterViewInit() {
@@ -39,13 +49,17 @@ export class NavbarComponent implements OnInit,AfterViewInit {
 
 
   profile(){
-    this.userId=JSON.parse(localStorage.getItem('userId')!)
-    this._router.navigate([`/users/${this.userId}/posts`])
+     this._router.navigate([`/users/${this.user.user._id}/posts`])
     // Navigate to profile page
   }
   settings(){ 
     // Navigate to settings page
     this._router.navigate([`/users/settings`])
+  }
+  darkMode(){
+    document.documentElement.classList.toggle('dark');
+    this.isdarkMode=!this.isdarkMode;
+    localStorage.setItem('darkMode',JSON.stringify(this.isdarkMode));
   }
   signOut(){
     localStorage.removeItem('token');
@@ -53,4 +67,12 @@ export class NavbarComponent implements OnInit,AfterViewInit {
     this._router.navigate(['/login']);
     // Handle sign out
   } 
+  switchLanguage(lang: string) {
+    this._translate.changeLanguage(lang);
+   }
+  currentLanguage(lang: string): boolean {
+  const curr = this._translateService.currentLang || this._translateService.getDefaultLang();
+  return curr === lang;
+}
+
 }

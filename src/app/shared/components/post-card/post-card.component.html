@@ -6,10 +6,10 @@
             class="w-10 h-10 rounded-full mr-3"
             />
             <div>
-                <h2 class="text-sm font-semibold text-gray-900">{{ post?.user?.name }}</h2>
-                <p class="text-xs text-gray-500">{{ post?.createdAt | date: 'short' }}</p>
+                <h2 class="text-sm font-semibold text-primary">{{ post?.user?.name }}</h2>
+                <p class="text-xs text-secondary">{{ post?.createdAt | date: 'short' }}</p>
             </div>
-            <div class="relative inline-block text-left ml-auto">
+            <div class="relative inline-block text-left ml-auto rtl:mr-auto">
                 <button
                     type="button"
                     (click)="toggleMenu()"
@@ -56,7 +56,7 @@
 
   <!-- Content -->
 @if(post.body){
-  <p class="text-sm text-gray-800 mb-3 cursor-pointer" [routerLink]="['/posts', post.id]">
+  <p class="text-sm text-primary mb-3 cursor-pointer" [routerLink]="['/posts', post.id]">
     {{ post.body }}
   </p>
 }
@@ -73,15 +73,15 @@
 }
 
   <!-- Actions -->
-  <div class="flex justify-between items-center mt-3 text-gray-500 text-sm mb-6">
+  <div class="flex justify-between items-center mt-3 text-secondary text-sm mb-6">
     <button
-      class="flex items-center hover:text-blue-600 transition-colors duration-150"
+      class="flex items-center hover:text-primary transition-colors duration-150"
     > 
-       Like
+       {{"postCard.like" | translate}}
     </button>
 
     <button (click)="onShowComments()"
-      class="flex items-center hover:text-blue-600 transition-colors duration-150"
+      class="flex items-center hover:text-primary transition-colors duration-150"
     >
       <svg
         class="w-5 h-5 mr-1"
@@ -96,7 +96,7 @@
           d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.96 9.96 0 01-4.74-1.21L3 20l1.79-3.58A7.97 7.97 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
         />
       </svg>
-      Show Comments
+      {{"postCard.showcomments" | translate}}
     </button>
   </div>
  

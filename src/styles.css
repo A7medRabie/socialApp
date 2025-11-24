@@ -1,12 +1,49 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
+
+:root {
+  /* Light Mode */
+  --bg-site: #f9fafb;
+  --bg-post: #ffffff;
+  --bg-comment: #f3f4f6;
+  --bg-settings: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-color: #3b82f6;
+}
+
+.dark {
+  /* Dark Mode */
+  --bg-site: #1f2937;
+  --bg-post: #111827;
+  --bg-comment: #374151;
+  --bg-settings: #4b5563;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --accent-color: #3b82f6;
+}
+
+/* Utilities */
+.bg-site { background-color: var(--bg-site); }
+.bg-post { background-color: var(--bg-post); }
+.bg-comment { background-color: var(--bg-comment); }
+.bg-settings { background-color: var(--bg-settings); }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+
+.text-accent { color: var(--accent-color); }
+.bg-accent { background-color: var(--accent-color); }
+
 
 /* You can a@import "flowbite/src/themes/default";
 dd global styles to this file, and also import other style files */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #eeeeee;
+  background-color:var(--bg-site);
 }

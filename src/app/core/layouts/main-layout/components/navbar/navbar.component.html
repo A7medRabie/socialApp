@@ -5,6 +5,7 @@
   <a routerLink="/timeline" class="flex items-center text-sky-400 space-x-3 rtl:space-x-reverse">
        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Post App</span>
   </a>
+  
   <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <button  type="button" class="cursor-pointer flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span class="sr-only">Open user menu</span>
@@ -17,14 +18,41 @@
          </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <span (click)="closeDropdown();profile()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</span>
+            <span (click)="closeDropdown();profile()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{'navbar.profile' | translate}}</span>
           </li>
           <li>
-            <span (click)="closeDropdown();settings()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</span>
+            <span (click)="closeDropdown();settings()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{'navbar.settings' | translate}}</span>
           </li>
+          <li>
+            @if (isdarkMode) {
+            <span (click)="closeDropdown();darkMode()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{'navbar.light' | translate}}</span>
+            }
+            @else {
+                  <span (click)="closeDropdown();darkMode()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{'navbar.dark' | translate}}</span>
+
+            }
+          </li>
+          <li>
+  <span 
+    (click)="closeDropdown(); switchLanguage('ar')" 
+    [class.hidden]="currentLanguage('ar')"
+    class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+    {{'navbar.ar' | translate}}
+  </span>
+</li>
+
+<li>
+  <span 
+    (click)="closeDropdown(); switchLanguage('en')" 
+    [class.hidden]="currentLanguage('en')"
+    class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+    {{'navbar.en' | translate}}
+  </span>
+</li>
+
           <li>
            
-            <span (click)="closeDropdown();signOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</span>
+            <span (click)="closeDropdown();signOut()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{'navbar.logout' | translate}}</span>
           </li>
         </ul>
       </div>

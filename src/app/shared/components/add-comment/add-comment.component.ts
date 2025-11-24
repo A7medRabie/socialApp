@@ -1,14 +1,12 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { CommentsService } from '../../../core/services/comments.service';
-import { CommentBody } from '../../../core/interfaces/comments.Interface';
-import { FormControl, FormControlName, ReactiveFormsModule, RequiredValidator, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { TimelineComponent } from '../../../features/pages/timeline/timeline.component';
-import { Comment } from '../../../core/interfaces/posts.Interface';
+ import { FormControl, FormControlName, ReactiveFormsModule, RequiredValidator, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
+  import { Comment } from '../../../core/interfaces/posts.Interface';
+import { TranslatePipe } from '@ngx-translate/core';
  
 @Component({
   selector: 'app-add-comment',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,TranslatePipe],
   templateUrl: './add-comment.component.html',
   styleUrl: './add-comment.component.css'
 })

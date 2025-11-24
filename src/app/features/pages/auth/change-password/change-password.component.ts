@@ -3,10 +3,11 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validator
 import { CustomInputComponent, CustomButtonComponent } from "../../../../../../projects/shared-ui/src/public-api";
 import { ToastService } from '../../../../../../projects/shared-utils/src/public-api';
 import { AuthService } from '../../../../../../projects/auth/src/lib/auth.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-change-password',
-  imports: [ReactiveFormsModule, CustomInputComponent, CustomButtonComponent],
+  imports: [ReactiveFormsModule, CustomInputComponent, CustomButtonComponent,TranslatePipe],
   templateUrl: './change-password.component.html',
   styleUrl: './change-password.component.css'
 })

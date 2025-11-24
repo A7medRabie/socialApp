@@ -2,10 +2,11 @@
 import { Post } from '../../../core/interfaces/posts.Interface';
 import { DatePipe } from '@angular/common';
 import { RouterLink } from "@angular/router";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-post-card',
-  imports: [DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink,TranslatePipe],
   templateUrl: './post-card.component.html',
   styleUrl: './post-card.component.css'
 })
