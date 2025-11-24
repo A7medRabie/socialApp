@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { getLoggedUser } from '../../../core/interfaces/user.interface';
 import { ToastService } from '../../../../../projects/shared-utils/src/public-api';
 import { AuthService } from '../../../../../projects/auth/src/public-api';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile-photo',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './profile-photo.component.html',
   styleUrl: './profile-photo.component.css'
 })

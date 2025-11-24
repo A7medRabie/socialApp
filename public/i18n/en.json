@@ -1,0 +1,59 @@
+ {
+  "addpost":{
+    "placeholder":"Create a new post",
+    "title":"Create a new post",
+    "body":"Write your thoughts here...",
+    "submit":"Post",
+    "upload":"Click to upload"
+
+  },
+  "postCard":{
+    "like":"Like",
+    "showcomments":"Show Comments",
+     "placeholder":"Write a comment..."
+  },
+  
+   "comments":{
+     "placeholder":"Write a comment..."
+   }
+  ,
+  "settings":{
+    "title":"Account Settings",
+    "change profile photo":"Change Profile Photo",
+    "upload new photo":"Upload New Photo",
+    "change password":"Change Password",
+    "currentpassword":"Current Password",
+    "currentpasswordplaceholder":"Enter current password",
+    "newpassword":"New Password",
+    "newpasswordplaceholder":"Enter new password",
+    "confirmnewpassword":"Confirm New Password",
+    "submit":"Change Password"
+
+  },
+  "navbar":{
+    "profile":"Profile",
+    "settings":"Settings",
+    "dark":"Dark Mode",
+    "light":"Light Mode",
+    "ar":"AR Lang",
+    "en":"EN Lang",
+    "logout":"Logout"
+  },
+  "login":{
+    "login to your account":"Login to your account",
+    "email":"Email",
+    "password":"Password",
+    "dont have an account?":"Don't have an account?",
+    "register here":"Register here"
+  },
+  "register":{
+    "register to your account":"Register to your account",
+    "name":"Name",
+    "email":"Email",
+    "password":"Password",
+    "confirm password":"Confirm Password",
+    "already have an account?":"Already have an account?",
+    "login here":"Login here"
+  }
+
+ }

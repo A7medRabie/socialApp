@@ -2,7 +2,7 @@
  <app-add-post></app-add-post>
 
 @for (item of userPosts(); track $index) {
-<div class="md:w-1/2 mx-auto bg-white border border-gray-200 rounded-xl shadow-sm p-4 mb-6">
+<div class="md:w-1/2 mx-auto bg-site border border-gray-200 rounded-xl shadow-sm p-4 mb-6 dark:border-gray-700">
 
   <app-post-card [post]="item" (loadComments)="trigger[item.id]=true" ></app-post-card>
 

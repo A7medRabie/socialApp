@@ -1,4 +1,4 @@
-<label class="block mb-2 text-sm font-medium text-gray-700">{{label}}</label>
+<label class="block mb-2 text-sm font-medium text-primary">{{label}}</label>
 <input 
    [value]="value"
    (input)="handleInput($event)"
@@ -9,7 +9,7 @@
                 [attr.datepicker-orientation]="datepicker?'top':null"
                 [placeholder]="placeholder"
                 [type]="type" 
-                 class="bg-gray-50 border border-gray-300 focus:ring-0 text-gray-900 text-sm rounded-lg  block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Select Birthdate"
+                 class="bg-site border border-gray-300 focus:ring-0 text-primary text-sm rounded-lg  block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Select Birthdate"
                 [ngClass]="{
                            'border-red-500': (control?.invalid && control?.touched) || (parentForm?.hasError('misMatch') && control?.touched),
                             'border-gray-300': control?.valid || !control?.touched }"

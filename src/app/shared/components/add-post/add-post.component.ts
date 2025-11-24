@@ -1,13 +1,16 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor, NgIf, NgClass } from '@angular/common';
  import { PostsService } from '../../../core/services/posts.service';
 import { ToastService } from '../../../../../projects/shared-utils/src/public-api';
+import { Router } from '@angular/router';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
+ 
 @Component({
   selector: 'app-add-post',
-  imports: [ReactiveFormsModule, NgIf, NgFor, NgClass],
+  imports: [ReactiveFormsModule, NgIf, NgFor, NgClass,TranslatePipe],
   templateUrl: './add-post.component.html',
   styleUrl: './add-post.component.css'
 })
@@ -19,6 +22,8 @@ export class AddPostComponent implements OnInit {
 
   private _toastr=inject(ToastService)
   private _postsService=inject(PostsService);
+  private _destroyRef=inject(DestroyRef)
+  private _router=inject(Router)
 
 ngOnInit() {
   initFlowbite();
@@ -73,6 +78,8 @@ selectImage(e:Event){
         next: (response) => {
           this._toastr.success(response.message);
           this.content.reset();
+          this._router.navigate(['/timeline']);
+
             
         },
         error: (error) => {
