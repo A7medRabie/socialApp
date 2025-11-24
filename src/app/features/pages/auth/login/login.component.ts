@@ -6,11 +6,11 @@ import { initFlowbite } from 'flowbite';
 import { AuthService } from '../../../../../../projects/auth/src/public-api';
 import { ToastService } from '../../../../../../projects/shared-utils/src/public-api';
 import { NgClass } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [CustomInputComponent, CustomButtonComponent,ReactiveFormsModule],
+  imports: [CustomInputComponent, CustomButtonComponent,ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
